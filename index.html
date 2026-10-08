@@ -286,6 +286,8 @@ table.view td.tbc { color: var(--muted); font-style: italic; }
 .vgrid { display: grid; grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr)); gap: .8rem; }
 .vcard { margin: 0; display: flex; flex-direction: column; gap: .4rem; min-width: 0; }
 .vcard video { width: 100%; max-width: 100%; aspect-ratio: 9 / 16; object-fit: cover; background: #000; border-radius: 4px; }
+.vcard.wide { grid-column: 1 / -1; }
+.vcard.wide video { aspect-ratio: 16 / 9; }
 .vcard figcaption { display: flex; justify-content: space-between; gap: .5rem; font-size: .88rem; }
 .vcard figcaption span:last-child { color: var(--muted); font-variant-numeric: tabular-nums; }
 .tributes { display: flex; flex-direction: column; gap: 1rem; }
@@ -664,6 +666,7 @@ footer .verse { font-family: var(--display); font-size: 1.1rem; color: var(--ink
       <p class="lede">Tap a video to play it. Turn your sound on.</p>
     </header>
     <div class="vgrid">
+      <figure class="vcard wide"><video src="video/v10.mp4" poster="video/v10.jpg" controls playsinline preload="none" aria-label="Momsie chatting in her chair"></video><figcaption><span>Momsie chatting in her chair</span><span>0:14</span></figcaption></figure>
       <figure class="vcard"><video src="video/v1.mp4" poster="video/v1.jpg" controls playsinline preload="none" aria-label="At home with Momsie"></video><figcaption><span>At home with Momsie</span><span>6:29</span></figcaption></figure>
       <figure class="vcard"><video src="video/v2.mp4" poster="video/v2.jpg" controls playsinline preload="none" aria-label="Momsie enjoying a cupcake"></video><figcaption><span>Momsie enjoying a cupcake</span><span>0:48</span></figcaption></figure>
       <figure class="vcard"><video src="video/v3.mp4" poster="video/v3.jpg" controls playsinline preload="none" aria-label="A big hug from Momsie"></video><figcaption><span>A big hug from Momsie</span><span>0:53</span></figcaption></figure>
