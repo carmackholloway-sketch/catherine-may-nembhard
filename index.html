@@ -327,6 +327,7 @@ footer .verse { font-family: var(--display); font-size: 1.1rem; color: var(--ink
 <div class="wrap">
 
   <nav aria-label="Sections">
+    <a href="#homecoming">Homecoming Day</a>
     <a href="#nine-night">Nine Night</a>
     <a href="#funeral">Funeral</a>
     <a href="#guide">Guide</a>
@@ -354,6 +355,40 @@ footer .verse { font-family: var(--display); font-size: 1.1rem; color: var(--ink
       <small>11am · St Paul's Church, Tottenham</small>
     </div>
   </header>
+
+  <section id="homecoming" aria-labelledby="home-h">
+    <header>
+      <p class="label">Friday 6 November 2026</p>
+      <h2 id="home-h">Catherine’s Homecoming Day</h2>
+      <p class="lede">The day we laid Momsie to rest. Tap any photo to see it larger.</p>
+    </header>
+    <div class="gallery" id="hgallery">
+      <button type="button" class="ph" aria-label="Open photo: Momsie’s portrait in the back of the hearse"><img src="photos/333.jpg" alt="Momsie’s portrait in the back of the hearse" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: Momsie’s portrait travelling with her in the hearse"><img src="photos/334.jpg" alt="Momsie’s portrait travelling with her in the hearse" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: The hearse, with her name spelled in white flowers"><img src="photos/335.jpg" alt="The hearse, with her name spelled in white flowers" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: Momsie’s grandsons bearing her to her resting place"><img src="photos/336.jpg" alt="Momsie’s grandsons bearing her to her resting place" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: Her grandsons laying Momsie to rest"><img src="photos/337.jpg" alt="Her grandsons laying Momsie to rest" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: Family and friends gathered as Momsie is laid to rest"><img src="photos/338.jpg" alt="Family and friends gathered as Momsie is laid to rest" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: A final farewell at the graveside"><img src="photos/339.jpg" alt="A final farewell at the graveside" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: White roses laid for Momsie"><img src="photos/340.jpg" alt="White roses laid for Momsie" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: Roses from her family, one by one"><img src="photos/341.jpg" alt="Roses from her family, one by one" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: The family gathered at the graveside"><img src="photos/342.jpg" alt="The family gathered at the graveside" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: Flowers placed by the little ones"><img src="photos/343.jpg" alt="Flowers placed by the little ones" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: Momsie’s resting place, covered in flowers"><img src="photos/344.jpg" alt="Momsie’s resting place, covered in flowers" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: A garden of flowers for Momsie"><img src="photos/345.jpg" alt="A garden of flowers for Momsie" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: Her name in white flowers"><img src="photos/346.jpg" alt="Her name in white flowers" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: Forever in our hearts"><img src="photos/347.jpg" alt="Forever in our hearts" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: Momsie’s portrait among the roses at the celebration of her life"><img src="photos/348.jpg" alt="Momsie’s portrait among the roses at the celebration of her life" loading="lazy"></button>
+      <button type="button" class="ph" aria-label="Open photo: MOMSIE in lights at the celebration of her life"><img src="photos/349.jpg" alt="MOMSIE in lights at the celebration of her life" loading="lazy"></button>
+    </div>
+    <div class="vgrid" style="margin-top:28px">
+      <figure class="vcard"><video src="video/v34.mp4" poster="video/v34.jpg" controls playsinline preload="none" aria-label="The horse-drawn carriage bringing Momsie home"></video><figcaption><span>The horse-drawn carriage bringing Momsie home</span><span>0:28</span></figcaption></figure>
+      <figure class="vcard"><video src="video/v35.mp4" poster="video/v35.jpg" controls playsinline preload="none" aria-label="Momsie carried in on the shoulders of her family"></video><figcaption><span>Momsie carried in on the shoulders of her family</span><span>0:10</span></figcaption></figure>
+      <figure class="vcard"><video src="video/v31.mp4" poster="video/v31.jpg" controls playsinline preload="none" aria-label="Family and friends gathered at the graveside"></video><figcaption><span>Family and friends gathered at the graveside</span><span>0:13</span></figcaption></figure>
+      <figure class="vcard"><video src="video/v32.mp4" poster="video/v32.jpg" controls playsinline preload="none" aria-label="Singing together at the graveside"></video><figcaption><span>Singing together at the graveside</span><span>0:23</span></figcaption></figure>
+      <figure class="vcard"><video src="video/v33.mp4" poster="video/v33.jpg" controls playsinline preload="none" aria-label="Momsie’s grandsons laying her to rest"></video><figcaption><span>Momsie’s grandsons laying her to rest</span><span>1:29</span></figcaption></figure>
+    </div>
+  </section>
 
   <section id="nine-night" aria-labelledby="nine-h">
     <header>
@@ -1058,7 +1093,9 @@ footer .verse { font-family: var(--display); font-size: 1.1rem; color: var(--ink
   const lbCount = document.getElementById('lbCount');
   const all = Array.from(gallery.querySelectorAll('button.ph'));
   let idx = 0, lastFocus = null, current = all;
-  all.forEach(b => b.addEventListener('click', () => open(current.indexOf(b))));
+  all.forEach(b => b.addEventListener('click', () => { current = all.filter(x => !x.hidden); open(current.indexOf(b)); }));
+  const hall = Array.from(document.querySelectorAll('#hgallery button.ph'));
+  hall.forEach(b => b.addEventListener('click', () => { current = hall; open(hall.indexOf(b)); }));
   CATS.forEach(([key, label]) => {
     const n = key === 'all' ? all.length : all.filter(b => b.dataset.cat === key).length;
     if (!n) return;
